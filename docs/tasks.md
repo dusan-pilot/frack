@@ -20,6 +20,7 @@
 ## milestone 4
  - implement slack signing secret verification
  - implement slack command text verification
+ - error handling
  - add tests
  - add views and display slack command
 
