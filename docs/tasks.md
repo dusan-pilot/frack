@@ -1,9 +1,9 @@
 ## milestone 1
- - investigate slack api
- - investigate frame api
- - git repo setup
- - heroku app setup
- - add docs (architecture, tech stack, tasks)
+ - ~~investigate slack api~~ _(done)_
+ - investigate frame api (70% done)
+ - ~~git repo setup~~ _(done)_
+ - ~~heroku app setup~~ _(done)_
+ - ~~add docs (architecture, tech stack, tasks)~~ _(done)_
 
 ## milestone 2
  - configure python environment (requirements.txt)
