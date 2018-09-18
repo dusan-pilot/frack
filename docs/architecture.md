@@ -1,4 +1,4 @@
-![architecture](https://raw.githubusercontent.com/dusan-pilot/slack-integration/master/docs/arch.jpeg)
+![architecture](https://github.com/dusan-pilot/frack/blob/master/docs/arch.jpeg)
 
 ## layers:
 
