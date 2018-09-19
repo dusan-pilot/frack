@@ -3,8 +3,6 @@ jobs:
   build:
     docker:
       - image: circleci/python:2.7.15-stretch-browsers
-        environment:
-          SLACK_SIGNING_SECRET: secret
     steps:
       - checkout
       - run:
@@ -13,3 +11,6 @@ jobs:
             . venv/bin/activate
             pip install -r requirements.txt
             python tests.py
+          environment:
+            SLACK_SIGNING_SECRET: secret
+            LOG_TO_FILE: True
