@@ -1,6 +1,6 @@
 ## milestone 1
  - ~~investigate slack api~~ _(done)_
- - investigate frame api (70% done)
+ - investigate frame api (80% done)
  - ~~git repo setup~~ _(done)_
  - ~~heroku app setup~~ _(done)_
  - ~~add docs (architecture, tech stack, tasks)~~ _(done)_
@@ -13,9 +13,9 @@
  - ~~create slack app, add slash command and configure it to use frack service url~~ _(done)_
 
 ## milestone 3
- - add and configure logger
- - add environment variables
- - add basic tests for flask app
+ - ~~add and configure logger~~ _(done)_
+ - ~~add environment variables~~ _(done)_
+ - ~~add basic tests for flask app~~ _(done)_
 
 ## milestone 4
  - implement slack signing secret verification
