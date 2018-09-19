@@ -1,0 +1,11 @@
+{
+  "text": "Server responded with: 401 Unauthorized.",
+  "attachments": [
+    {
+      "fallback": "Server responded with: 401 Unauthorized.",
+      "pretext": "Your request cannot be verified.",
+      "color": "#36a64f",
+      "footer": "Frack service"
+    }
+  ]
+}
