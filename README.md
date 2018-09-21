@@ -5,18 +5,19 @@ Frack is simple service which enables user to send Slack command to start a defa
 
 ## Install
 
-Install requirements from **requirements.txt** file:
+Install requirements.
 ```bash
 pip install -r requirements.txt
 ```
 
+## Run
 Once the requirements have been installed, start server using **gunicorn**:
 ```bash
 gunicorn -w 4 app:app
 ```
 
 ## Tests
-Run python script **tests.py**
+Run python script.
 ```bash
 python tests.py
 ```
