@@ -1,12 +1,82 @@
-{# this is top-level template which defines the general layout of all templates #}
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>{% block title %}{% endblock %}</title>
-    </head>
-    <body>
-    {% block body %}
-        <h1>Frack</h1>
-    {% endblock %}
-    </body>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:description" content="Launch an App With FrameApp API.">
+    <title>FrameApp Frack Launcher</title>
+    <script src="https://app.fra.me/embed/frame_app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"></script>
+    <style>
+    body { color: #bcdcff; background: black; font-size: 3em; font-family: monospace; text-align: center; margin: 20%;};
+
+    </style>
+</head>
+<body>
+
+<p id="message">Loading...</p>
+
+<script>
+        function userMessage(text) {
+        console.log(text);
+        $('#message').html(text);
+        }
+
+        var hash = '{{ payload[0] }}';
+        var fileName = '{{ payload[1] }}';
+        var token = '{{ payload[2] }}';
+
+        var frameApp = new FrameApp({
+        hash: hash,
+        token: token,
+        fileName: fileName
+        });
+
+        frameApp.bind(FrameApp.EVENT_ERROR, function(error) {
+        if (error.code == frameApi.errors.PlatformErrorCodes.STARTING_NEW_SRV_ELAS) {
+            userMessage("Starting an instance. This may take a few minutes.");
+        } else if (undefined === error.code) {
+            userMessage("Application not found for: " + hash);
+        } else {
+            userMessage("FrameApp.EVENT_ERROR: code:" + error.code + " message: " + error.message);
+        }
+        });
+
+        frameApp.bind(FrameApp.EVENT_READY, function() {
+        userMessage("Calling start session. This may take up to 3 minutes if no instance is running.");
+        frameApp.startSession({
+            connectOnStart: true,
+            waitForInstance: true,
+        }).then(function(){
+            userMessage("entered then()");
+        }).catch(function(error) {
+            if (error.code == 57) {
+                userMessage("Starting an instance. This may take a few minutes.");
+                $('#message').html("Starting an instance. This may take a few minutes.");
+            } else {
+                userMessage("entered catch() with error: code: " + error.code + " message: " + error.message);
+            }
+        });
+        frameApp.bind(FrameApp.EVENT_LOADING_DONE, function() {
+            userMessage("FrameApp.EVENT_LOADING_DONE");
+        });
+
+        frameApp.bind(FrameApp.EVENT_BROADCAST_SESSION_ID, function() {
+            userMessage("FrameApp.EVENT_BROADCAST_SESSION_ID");
+        });
+
+        frameApp.bind(FrameApp.EVENT_TERMINAL_SHOWN, function() {
+            userMessage("FrameApp.EVENT_TERMINAL_SHOWN");
+        });
+
+        frameApp.bind(FrameApp.EVENT_CLOSED, function() {
+            userMessage("You may now close this tab.");
+            close(); // This won't do anything in most cases, but just in case.
+        });
+
+        });
+
+
+</script>
+</body>
 </html>

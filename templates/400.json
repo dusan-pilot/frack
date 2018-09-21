@@ -1,0 +1,11 @@
+{
+  "text": "Server responded with: 400 Bad Request.",
+  "attachments": [
+    {
+      "fallback": "Server responded with 400 Bad Request.",
+      "pretext": "Make sure your URL is not empty and not linking to unsupported resource.",
+      "color": "#36a64f",
+      "footer": "Frack service"
+    }
+  ]
+}
